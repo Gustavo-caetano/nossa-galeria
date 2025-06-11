@@ -100,8 +100,8 @@
     // Getting rows
     gridRowsCount = Math.ceil(height / gridSize)
     // Make the grid 5 times bigger than viewport
-    gridColumns = gridColumnsCount * 2
-    gridRows = gridRowsCount * 2
+    gridColumns = gridColumnsCount * 3
+    gridRows = gridRowsCount * 3
     // Create a new Grid instance with our settings
     grid = new Grid(gridSize, gridColumns, gridRows, gridMin)
     // Calculate the center position for the grid in the viewport
