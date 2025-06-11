@@ -100,8 +100,8 @@
     // Getting rows
     gridRowsCount = Math.ceil(height / gridSize)
     // Make the grid 5 times bigger than viewport
-    gridColumns = gridColumnsCount * 5
-    gridRows = gridRowsCount * 5
+    gridColumns = gridColumnsCount * 1.5
+    gridRows = gridRowsCount * 1.5
     // Create a new Grid instance with our settings
     grid = new Grid(gridSize, gridColumns, gridRows, gridMin)
     // Calculate the center position for the grid in the viewport
@@ -157,10 +157,79 @@
 
   // Load texture for an image, giving its index
   function loadTextureForImage (index) {
+
+    console.log("index: "+ index)
     // Get image Sprite
     const image = images[index]
     // Set the url to get a random image from Unsplash Source, given image dimensions
-    const url = `https://source.unsplash.com/random/${image.width}x${image.height}`
+    const fixedImageUrls = [
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749603018/IMG-20250601-WA0048_rlbwn3.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749603017/IMG-20250601-WA0047_n5ct9h.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749603016/IMG-20250530-WA0022_dtwfhb.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749603016/IMG-20250601-WA0044_tzr66n.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749603016/IMG-20250521-WA0057_n12gnn.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749603015/IMG-20250521-WA0055_lvp9i4.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749603015/IMG-20250521-WA0056_fiejvu.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749603011/IMG-20250521-WA0051_raikl5.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749603008/IMG-20250521-WA0050_kcl3jw.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749603008/IMG-20250521-WA0047_iv4kqg.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749603008/IMG-20250521-WA0046_yhw7hx.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749603008/IMG-20250521-WA0049_e6v3gu.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749603007/IMG-20250521-WA0045_hx0rou.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602980/IMG-20250521-WA0044_prfjme.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602922/IMG-20250521-WA0042_o7ywu3.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602918/IMG-20250521-WA0039_jar6zv.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602918/IMG-20250521-WA0037_jsjo3n.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602916/IMG-20250521-WA0036_yvbkaa.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602915/IMG-20250521-WA0034_gcinz0.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602914/IMG-20250521-WA0027_jyizvk.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602913/IMG-20250513-WA0009_ys5qlc.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602910/IMG-20250513-WA0007_cgrhrs.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602909/IMG-20250513-WA0006_nxvf5s.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602909/IMG-20250513-WA0004_kbwbim.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602907/IMG-20250513-WA0001_uu9eia.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602908/IMG-20250513-WA0003_oqecz8.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602907/IMG-20250513-WA0002_laiqap.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602904/IMG-20250513-WA0000_o0v3ta.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602903/IMG-20250512-WA0107_w15qn8.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602902/IMG-20250501-WA0040_dneamz.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602901/IMG-20250501-WA0039_cjygb9.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602900/IMG-20250501-WA0038_da1q6z.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602900/IMG-20250501-WA0037_mcggsx.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602897/IMG-20250501-WA0036_jynfrk.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602895/IMG-20250501-WA0035_xr3x8x.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602895/IMG-20250501-WA0034_xfa7u7.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602895/IMG-20250501-WA0033_cavhi1.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602894/20250607_205702_wbodqu.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602892/20250607_205657_b8bz6c.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602891/20250601_151104_ooizb0.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602890/20250601_151052_tpwx5a.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602889/20250525_163309_qlvx85.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602889/20250601_151048_ijpqkg.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602887/20250430_194809_fibgvq.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602885/20250430_194743_1_rjn3ai.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602885/20250430_194743_r9vcrb.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602885/20250430_194717_ezxptd.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602884/20250430_194657_bgoowa.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602883/20250430_194542_s4ac7h.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602883/20250430_194533_fd9stx.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602882/20250430_194455_atxbez.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602881/20250430_194233_swjic2.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602880/20250430_194217_bv0m06.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602880/20250430_194226_bfhkrg.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602879/20250428_212424_gip2db.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602879/20250428_212417_bbljjo.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602878/20250425_182610_ys1auv.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602878/20250425_182641_eqfqyt.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749602878/20250425_182601_j2zrwy.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749604866/Imagem_do_WhatsApp_de_2025-06-10_%C3%A0_s_22.16.03_9f4e86c2_s04ide.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749604866/Imagem_do_WhatsApp_de_2025-06-10_%C3%A0_s_22.16.03_bd376f79_jc6t3t.jpg",
+    "https://res.cloudinary.com/ddqdz2qyi/image/upload/v1749604867/casa_rqhgvy.jpg"
+  ];
+
+
+    // Defina a URL com base no índice
+    const url = fixedImageUrls[index % fixedImageUrls.length]
     // Get the corresponding rect, to store more data needed (it is a normal Object)
     const rect = rects[index]
     // Create a new AbortController, to abort fetch if needed
@@ -308,7 +377,21 @@
     initRectsAndImages()
     initEvents()
 
-    // Animation loop
+    // Zoom com a roda do mouse
+    view.addEventListener('wheel', (event) => {
+      event.preventDefault()
+      const scaleFactor = 1.1
+      if (event.deltaY < 0) {
+        container.scale.x *= scaleFactor
+        container.scale.y *= scaleFactor
+      } else {
+        container.scale.x /= scaleFactor
+        container.scale.y /= scaleFactor
+      }
+    }, { passive: false })
+
+
+        // Animation loop
     // Code here will be executed on every animation frame
     app.ticker.add(() => {
       // Multiply the values by a coefficient to get a smooth animation

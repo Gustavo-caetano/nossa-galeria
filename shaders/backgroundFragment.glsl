@@ -20,12 +20,5 @@ float isGridLine (vec2 coord) {
 
 // Main function
 void main () {
-  // Coordinates minus the `uPointerDiff` value, and plus an offset
-  vec2 coord = gl_FragCoord.xy - uPointerDiff + vec2(10.0);
-  // Set `color` to black
-  vec3 color = vec3(0.0);
-  // If it is a grid line, change blue channel to 0.3
-  color.b = isGridLine(coord) * 0.3;
-  // Assing the final rgba color to `gl_FragColor`
-  gl_FragColor = vec4(color, 1.0);
+  gl_FragColor = vec4(1.0);
 }
