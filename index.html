@@ -7,8 +7,8 @@
   <title>Nossa Galeria 💖</title>
   <link rel="stylesheet" href="css/styles.css">
 
-  <!-- Ícone de coração na aba -->
-  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/833/833472.png" type="image/png">
+  <!-- Novo ícone: coração em vidro estilo 3D -->
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1216/1216733.png" type="image/png">
 
   <style>
     body {
@@ -32,7 +32,24 @@
       font-family: 'Brush Script MT', cursive;
       color: #d63384;
       font-size: 2.8rem;
-      margin-bottom: 30px;
+      margin-bottom: 15px;
+    }
+
+    .gallery-message {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 1.1rem;
+      color: #444;
+      margin-bottom: 25px;
+      padding: 10px;
+      border: 2px dashed #ffb6c1;
+      border-radius: 10px;
+      background-color: #fff8fa;
+    }
+
+    .gallery-message[contenteditable="true"]:focus {
+      outline: none;
+      border-color: #ff69b4;
+      box-shadow: 0 0 0 3px #ffe4ec;
     }
 
     .view {
@@ -47,7 +64,14 @@
 <body>
 
   <div class="gallery-container">
-    <h2>Nossa Galeria 💑</h2>
+    <h2>Nossa Galeria ❤️</h2>
+
+
+    <!-- Área de texto editável -->
+    <div class="gallery-message" contenteditable="true">
+      Os melhores momentos da minha é ao seu lado ❤️
+    </div>
+
     <canvas class="view"></canvas>
   </div>
 
