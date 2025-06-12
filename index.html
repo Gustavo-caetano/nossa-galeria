@@ -7,7 +7,7 @@
   <title>Nossa Galeria 💖</title>
   <link rel="stylesheet" href="css/styles.css">
 
-  <!-- Novo ícone: coração em vidro estilo 3D -->
+  <!-- Ícone da aba -->
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1216/1216733.png" type="image/png">
 
   <style>
@@ -15,13 +15,15 @@
       margin: 0;
       background: linear-gradient(to bottom right, #ffe4e1, #fff0f5);
       font-family: 'Segoe UI', sans-serif;
+      padding: 0;
     }
 
     .gallery-container {
       border: 4px solid #ffc0cb;
       border-radius: 20px;
-      padding: 30px;
-      margin: 60px auto;
+      padding: 20px;
+      margin: 30px auto 20px;
+      width: 90%;
       max-width: 960px;
       text-align: center;
       background-color: #ffffffcc;
@@ -31,19 +33,21 @@
     .gallery-container h2 {
       font-family: 'Brush Script MT', cursive;
       color: #d63384;
-      font-size: 2.8rem;
-      margin-bottom: 15px;
+      font-size: 2.5rem;
+      margin-top: 10px;
+      margin-bottom: 10px;
     }
 
     .gallery-message {
       font-family: 'Segoe UI', sans-serif;
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: #444;
-      margin-bottom: 25px;
+      margin: 10px auto 25px;
       padding: 10px;
       border: 2px dashed #ffb6c1;
       border-radius: 10px;
       background-color: #fff8fa;
+      max-width: 90%;
     }
 
     .gallery-message[contenteditable="true"]:focus {
@@ -58,6 +62,22 @@
       border: 2px dashed #ff69b4;
       border-radius: 12px;
       max-width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 600px) {
+      .gallery-container {
+        padding: 15px;
+        margin: 20px 10px;
+      }
+
+      .gallery-container h2 {
+        font-size: 2rem;
+      }
+
+      .gallery-message {
+        font-size: 0.95rem;
+      }
     }
   </style>
 </head>
@@ -65,7 +85,6 @@
 
   <div class="gallery-container">
     <h2>Nossa Galeria ❤️</h2>
-
 
     <!-- Área de texto editável -->
     <div class="gallery-message" contenteditable="true">
