@@ -19,15 +19,30 @@
     }
 
     .gallery-container {
-      border: 4px solid #ffc0cb;
-      border-radius: 20px;
+      border: 10px solid #3c2f2f; /* Moldura de madeira escura */
+      border-radius: 8px;
       padding: 20px;
-      margin: 30px auto 20px;
+      margin: 10px auto 20px;
       width: 90%;
       max-width: 960px;
       text-align: center;
-      background-color: #ffffffcc;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      background: linear-gradient(135deg, #f5f5f5, #e0d8c8); /* Fundo com textura de passe-partout */
+      box-shadow: 
+        0 0 10px rgba(0, 0, 0, 0.3), /* Sombra externa */
+        inset 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra interna para profundidade */
+      position: relative;
+    }
+
+    .gallery-container::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      border: 2px solid #d4af37; /* Detalhe dourado na borda externa */
+      border-radius: 8px;
+      z-index: -1;
     }
 
     .gallery-container h2 {
@@ -59,10 +74,12 @@
     .view {
       display: block;
       margin: 0 auto;
-      border: 2px dashed #ff69b4;
-      border-radius: 12px;
+      border: 8px solid #fff; /* Borda branca interna, como passe-partout */
+      border-radius: 4px;
       max-width: 100%;
       height: auto;
+      background-color: #f0f0f0; /* Fundo neutro para o canvas */
+      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2); /* Sombra interna para profundidade */
     }
 
     @media (max-width: 600px) {
