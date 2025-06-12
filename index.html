@@ -13,41 +13,26 @@
   <style>
     body {
       margin: 0;
-      background: linear-gradient(to bottom right, #ffe4e1, #fff0f5);
+      background: linear-gradient(to bottom right, #f3e5dc, #e9d5c5);
       font-family: 'Segoe UI', sans-serif;
       padding: 0;
     }
 
     .gallery-container {
-      border: 10px solid #3c2f2f; /* Moldura de madeira escura */
-      border-radius: 8px;
+      border: 4px solid #a9745c;
+      border-radius: 20px;
       padding: 20px;
-      margin: 10px auto 20px;
+      margin: 30px auto 20px;
       width: 90%;
       max-width: 960px;
       text-align: center;
-      background: linear-gradient(135deg, #f5f5f5, #e0d8c8); /* Fundo com textura de passe-partout */
-      box-shadow: 
-        0 0 10px rgba(0, 0, 0, 0.3), /* Sombra externa */
-        inset 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra interna para profundidade */
-      position: relative;
-    }
-
-    .gallery-container::before {
-      content: '';
-      position: absolute;
-      top: -10px;
-      left: -10px;
-      right: -10px;
-      bottom: -10px;
-      border: 2px solid #d4af37; /* Detalhe dourado na borda externa */
-      border-radius: 8px;
-      z-index: -1;
+      background-color: #fefaf7cc;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     }
 
     .gallery-container h2 {
       font-family: 'Brush Script MT', cursive;
-      color: #d63384;
+      color: #7b4b38;
       font-size: 2.5rem;
       margin-top: 10px;
       margin-bottom: 10px;
@@ -56,30 +41,28 @@
     .gallery-message {
       font-family: 'Segoe UI', sans-serif;
       font-size: 1rem;
-      color: #444;
+      color: #5a3928;
       margin: 10px auto 25px;
       padding: 10px;
-      border: 2px dashed #ffb6c1;
+      border: 2px dashed #c89f94;
       border-radius: 10px;
-      background-color: #fff8fa;
+      background-color: #fcf6f3;
       max-width: 90%;
     }
 
     .gallery-message[contenteditable="true"]:focus {
       outline: none;
-      border-color: #ff69b4;
-      box-shadow: 0 0 0 3px #ffe4ec;
+      border-color: #a9745c;
+      box-shadow: 0 0 0 3px #e8d6cd;
     }
 
     .view {
       display: block;
       margin: 0 auto;
-      border: 8px solid #fff; /* Borda branca interna, como passe-partout */
-      border-radius: 4px;
+      border: 2px dashed #b28a78;
+      border-radius: 12px;
       max-width: 100%;
       height: auto;
-      background-color: #f0f0f0; /* Fundo neutro para o canvas */
-      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2); /* Sombra interna para profundidade */
     }
 
     @media (max-width: 600px) {
@@ -97,6 +80,7 @@
       }
     }
   </style>
+
 </head>
 <body>
 
@@ -105,7 +89,7 @@
 
     <!-- Área de texto editável -->
     <div class="gallery-message" contenteditable="true">
-      Os melhores momentos da minha vida é ao seu lado ❤️
+      Os melhores momentos da minha é vida ao seu lado ❤️
     </div>
 
     <canvas class="view"></canvas>
