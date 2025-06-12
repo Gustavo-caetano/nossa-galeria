@@ -79,7 +79,7 @@
   // Set dimensions
   function initDimensions () {
     width = window.innerWidth
-    height = window.innerHeight
+    height = window.innerHeight * 0.7
     diffX = 0
     diffY = 0
   }
